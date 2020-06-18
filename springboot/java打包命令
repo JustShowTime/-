@@ -1,5 +1,18 @@
-nohup java -Xms256M -Xmx2G -server -Dfile.encoding=UTF-8  -jar cms-backend-1.0.jar >/dev/null 2>&1 &
-
-
+#支持jvm指定最小内存，最大内存，远程监控，并且去掉nohup.Out输出文件
 nohup java -Xms256M -Xmx2G -Djava.rmi.server.hostname=192.168.101.222 -Dcom.sun.management.jmxremote.port=11001 -Dcom.sun.management.jmxremote.ssl=false 
 -Dcom.sun.management.jmxremote.authenticate=false -server -Dfile.encoding=UTF-8 -jar cms-backend-1.0.jar >/dev/null 2>&1 &
+
+
+#说明：
+
+nohup：后台
+
+-Xms256M：最小内存
+
+-Xmx2G：最大内存
+
+-Djava.rmi.server.hostname=192.168.101.222 -Dcom.sun.management.jmxremote.port=11001 -Dcom.sun.management.jmxremote.ssl=false 
+-Dcom.sun.management.jmxremote.authenticate=false
+远程监控
+
+ >/dev/null 2>&1 &： 去掉nohup.Out输出文件
